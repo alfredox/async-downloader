@@ -1,0 +1,10 @@
+--2014-07-29 15:38:37--  http://staging.clixiesite.com/d03/videos
+Resolving staging.clixiesite.com... 166.78.49.98
+Connecting to staging.clixiesite.com|166.78.49.98|:80... connected.
+HTTP request sent, awaiting response... 302 
+Location: http://staging.clixiesite.com/login [following]
+--2014-07-29 15:38:37--  http://staging.clixiesite.com/login
+Connecting to staging.clixiesite.com|166.78.49.98|:80... connected.
+HTTP request sent, awaiting response... 200 
+Length: 2962 (2.9K) [text/html]
+Saving to: 'videos.1'

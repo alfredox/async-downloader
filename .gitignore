@@ -1,0 +1,5 @@
+.DS_Store
+.bundle
+.rvmrc
+.ruby-version
+.ruby-gemset
