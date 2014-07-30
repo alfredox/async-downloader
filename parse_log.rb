@@ -1,5 +1,5 @@
 class ParseLog
-  attr_reader :length, :percent, :error, :http_code
+  attr_reader :length, :percent, :status, :http_code
 
   def initialize(filename)
     @filename = filename
@@ -23,11 +23,11 @@ class ParseLog
       case line
       when /^Connecting/
         if line.match /\.\.\. failed/
-          @error = :connection
+          @status = :connecting
         end
       when /^Resolving/
         if line.match /\.\.\. failed/
-          @error = :dns
+          @status = :dns_error
           @header_parsed = true
         end
       when /^HTTP/
@@ -36,7 +36,11 @@ class ParseLog
           # FIXME
           unless @http_code == '302'
             @header_parsed = true
-            @error = :http unless @http_code == '200'
+            if @http_code == '200'
+              @status = :downloading
+            else
+              @status = :http_error
+            end
           end
         end
       when /^Length/
