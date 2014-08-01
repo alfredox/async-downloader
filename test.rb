@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 
-
 require './parse_log'
-
-
 
 p = ParseLog.new 'header_ok.log'
 p.check
