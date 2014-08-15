@@ -30,9 +30,12 @@ class ParseLog
       if (finished_match = data.match /saved \[(\d+)\/(\d+)\]/)
         @percent = 100
         @seconds_remaining = 0
+        @status = :downloaded
         # NOTE prehaps compare the final length with the original
       end
     end
+  rescue SystemCallError
+    # file does not exist
   end
 
   # this parses the different responses of wget
@@ -69,5 +72,7 @@ class ParseLog
         end
       end
     end
+  rescue SystemCallError
+    # file does not exist
   end
 end
